@@ -8,8 +8,12 @@ body {
   min-height: 100vh;
   --navHeight: 3rem;
   --appWidth: 70rem;
-
+  --mainColor: purple;
   --secColor: lightgrey;
+
+  --fontLight: white;
+  --fontColor: black;
+  font-size: 1.2rem;
 }
 
 a {
@@ -38,8 +42,52 @@ nav {
       margin-left: 1rem;
     }
   }
+  #kontaktLink {
+    margin-left: auto;
+  }
 }
 .inner {
+  width: 100%;
   max-width: var(--appWidth);
   margin: 0 auto;
+}
+
+main {
+  padding-top: var(--navHeight);
+}
+
+#introSection {
+  display: grid;
+  grid-template-columns: auto var(--appWidth) auto;
+  .inner {
+    grid-column: 2/3;
+    padding-bottom: 2rem;
+  }
+  #introText {
+    margin-top: 10rem;
+    max-width: 100%;
+    width: 32rem;
+    p {
+      margin-top: 1rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+    #introCallToAction {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.linkButton {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  //border: 1px solid black;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  background-color: var(--mainColor);
+  color: var(--fontLight);
 }
