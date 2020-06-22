@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  --navHeight: 3rem;
+  --appWidth: 70rem;
+
+  --secColor: lightgrey;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--navHeight);
+  background-color: var(--secColor);
+}
+nav {
+  height: 100%;
+  ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    li {
+      list-style: none;
+    }
+    li + li {
+      // give every li that has a li before it margin
+      margin-left: 1rem;
+    }
+  }
+}
+.inner {
+  max-width: var(--appWidth);
+  margin: 0 auto;
+}
