@@ -18,15 +18,17 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--fontColor);
 }
 
 header {
+  z-index: 5;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: var(--navHeight);
-  background-color: var(--secColor);
+  //background-color: var(--secColor);
 }
 nav {
   height: 100%;
@@ -36,6 +38,7 @@ nav {
     align-items: center;
     li {
       list-style: none;
+      font-weight: bold;
     }
     li + li {
       // give every li that has a li before it margin
@@ -45,26 +48,38 @@ nav {
   #kontaktLink {
     margin-left: auto;
   }
+  /* #kontaktLink,
+  #impressumLink {
+    a {
+      color: var(--fontLight);
+    }
+  } */
 }
 .inner {
   width: 100%;
   max-width: var(--appWidth);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 main {
-  padding-top: var(--navHeight);
+  //padding-top: var(--navHeight);
 }
 
 #introSection {
   display: grid;
-  grid-template-columns: auto var(--appWidth) auto;
+  grid-template-columns: auto minmax(100%, var(--appWidth)) auto;
+  //min-height: calc(100vh - var(--navHeight));
+  min-height: 100vh;
   .inner {
+    z-index: 2;
+    height: 100vh;
     grid-column: 2/3;
-    padding-bottom: 2rem;
+    grid-row: 1/-1;
+    display: flex;
   }
   #introText {
-    margin-top: 10rem;
+    margin: auto 0;
     max-width: 100%;
     width: 32rem;
     p {
@@ -79,6 +94,16 @@ main {
     #introCallToAction {
       margin-top: 2rem;
     }
+  }
+  img {
+    z-index: 0;
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    width: 100%;
+    //height: 100%;
+    object-fit: cover;
+
+    //clip-path: circle(800px at 90% 20%);
   }
 }
 

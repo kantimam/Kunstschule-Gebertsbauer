@@ -18,19 +18,26 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--fontColor);
 }
 
 header {
+  z-index: 5;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: var(--navHeight);
-  background-color: var(--secColor);
 }
 
 nav {
   height: 100%;
+  /* #kontaktLink,
+  #impressumLink {
+    a {
+      color: var(--fontLight);
+    }
+  } */
 }
 
 nav ul {
@@ -45,6 +52,7 @@ nav ul {
 
 nav ul li {
   list-style: none;
+  font-weight: bold;
 }
 
 nav ul li + li {
@@ -59,28 +67,31 @@ nav #kontaktLink {
   width: 100%;
   max-width: var(--appWidth);
   margin: 0 auto;
-}
-
-main {
-  padding-top: var(--navHeight);
+  padding: 0 1rem;
 }
 
 #introSection {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto var(--appWidth) auto;
-      grid-template-columns: auto var(--appWidth) auto;
+  -ms-grid-columns: auto minmax(100%, var(--appWidth)) auto;
+      grid-template-columns: auto minmax(100%, var(--appWidth)) auto;
+  min-height: 100vh;
 }
 
 #introSection .inner {
+  z-index: 2;
+  height: 100vh;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
-  padding-bottom: 2rem;
+  grid-row: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #introSection #introText {
-  margin-top: 10rem;
+  margin: auto 0;
   max-width: 100%;
   width: 32rem;
 }
@@ -99,6 +110,15 @@ main {
 
 #introSection #introText #introCallToAction {
   margin-top: 2rem;
+}
+
+#introSection img {
+  z-index: 0;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .linkButton {
