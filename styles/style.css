@@ -9,6 +9,7 @@ body {
   min-height: 100vh;
   --navHeight: 3rem;
   --appWidth: 70rem;
+  --bgColor: white;
   --mainColor: purple;
   --secColor: lightgrey;
   --fontLight: white;
@@ -30,14 +31,12 @@ header {
   height: var(--navHeight);
 }
 
+header.filled {
+  background-color: var(--secColor);
+}
+
 nav {
   height: 100%;
-  /* #kontaktLink,
-  #impressumLink {
-    a {
-      color: var(--fontLight);
-    }
-  } */
 }
 
 nav ul {
@@ -117,8 +116,28 @@ nav #kontaktLink {
   grid-row: 1/-1;
   grid-column: 1/-1;
   width: 100%;
+  min-height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
+}
+
+#descSection {
+  min-height: 20rem;
+  z-index: 1;
+  position: relative;
+}
+
+#descSection:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8rem;
+  top: -8rem;
+  z-index: 2;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(var(--bgColor)));
+  background-image: linear-gradient(transparent, var(--bgColor));
 }
 
 .linkButton {
