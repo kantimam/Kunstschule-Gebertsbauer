@@ -11,7 +11,7 @@ body {
   --appWidth: 70rem;
   --bgColor: white;
   --mainColor: purple;
-  --secColor: lightgrey;
+  --secColor: rgb(255, 255, 255);
   --fontLight: white;
   --fontColor: black;
   font-size: 1.2rem;
@@ -20,6 +20,14 @@ body {
 a {
   text-decoration: none;
   color: var(--fontColor);
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
 }
 
 header {
@@ -33,6 +41,8 @@ header {
 
 header.filled {
   background-color: var(--secColor);
+  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 nav {
@@ -99,14 +109,6 @@ nav #kontaktLink {
   margin-top: 1rem;
 }
 
-#introSection #introText h1 {
-  font-size: 2.8rem;
-}
-
-#introSection #introText h3 {
-  font-size: 1.6rem;
-}
-
 #introSection #introText #introCallToAction {
   margin-top: 2rem;
 }
@@ -116,28 +118,82 @@ nav #kontaktLink {
   grid-row: 1/-1;
   grid-column: 1/-1;
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh + 10rem);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: right;
-     object-position: right;
+  -o-object-position: top right;
+     object-position: top right;
 }
 
 #descSection {
   min-height: 20rem;
   z-index: 1;
   position: relative;
+  text-align: center;
 }
 
 #descSection:before {
+  display: block;
   content: "";
   position: absolute;
   width: 100%;
-  height: 8rem;
-  top: -8rem;
+  height: 10rem;
+  top: -10rem;
   z-index: 2;
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(var(--bgColor)));
   background-image: linear-gradient(transparent, var(--bgColor));
+}
+
+#descSection article {
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+}
+
+#descSection article div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 2rem;
+}
+
+#descSection article div h1 {
+  margin-bottom: 2rem;
+}
+
+#contentCards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding-bottom: 4rem;
+}
+
+.card {
+  height: 20rem;
+  background-color: #e9e9e9;
+  width: 100%;
+}
+
+.roundedImage {
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.roundBorder {
+  border-radius: 0.4rem;
+}
+
+.overflowHidden {
+  overflow: hidden;
 }
 
 .linkButton {
@@ -147,5 +203,30 @@ nav #kontaktLink {
   font-size: 1.6rem;
   background-color: var(--mainColor);
   color: var(--fontLight);
+}
+
+.imageGrid {
+  padding-top: var(--navHeight);
+  -webkit-columns: 4;
+          columns: 4;
+  -webkit-column-gap: 4px;
+          column-gap: 4px;
+}
+
+.imageGrid .grid-item {
+  display: block;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 4px;
+}
+
+.imageGrid img {
+  display: block;
+  width: 100%;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

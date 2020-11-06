@@ -10,7 +10,7 @@ body {
   --appWidth: 70rem;
   --bgColor: white;
   --mainColor: purple;
-  --secColor: lightgrey;
+  --secColor: rgb(255, 255, 255);
 
   --fontLight: white;
   --fontColor: black;
@@ -20,6 +20,14 @@ body {
 a {
   text-decoration: none;
   color: var(--fontColor);
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
 }
 
 header {
@@ -32,6 +40,7 @@ header {
 
   &.filled {
     background-color: var(--secColor);
+    box-shadow: 0 2px 20px  rgba(0,0,0,0.4);
   }
 }
 
@@ -93,13 +102,7 @@ nav {
       margin-top: 1rem;
     }
 
-    h1 {
-      font-size: 2.8rem;
-    }
 
-    h3 {
-      font-size: 1.6rem;
-    }
 
     #introCallToAction {
       margin-top: 2rem;
@@ -111,10 +114,10 @@ nav {
     grid-row: 1/-1;
     grid-column: 1/-1;
     width: 100%;
-    min-height: 100vh;
+    height: calc(100vh + 10rem);
     //height: 100%;
     object-fit: cover;
-    object-position: right;
+    object-position: top right;
 
     //clip-path: circle(800px at 90% 20%);
   }
@@ -124,16 +127,63 @@ nav {
   min-height: 20rem;
   z-index: 1;
   position: relative;
-
+  text-align: center;
   &:before {
+    display: block;
     content: "";
     position: absolute;
     width: 100%;
-    height: 8rem;
-    top: -8rem;
+    height: 10rem;
+    top: -10rem;
     z-index: 2;
     background-image: linear-gradient(transparent, var(--bgColor));
   }
+
+ 
+
+  article{
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: left;
+    
+    div{
+      flex: 1;
+      margin-left: 2rem;
+
+      h1{
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  
+}
+
+#contentCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding-bottom: 4rem;  
+}
+
+.card {
+  height: 20rem;
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+}
+
+.roundedImage {
+  border-radius: 0.4rem;
+  overflow: hidden;
+
+}
+
+.roundBorder {
+  border-radius: 0.4rem;
+}
+.overflowHidden {
+  overflow: hidden;
 }
 
 .linkButton {
@@ -145,3 +195,31 @@ nav {
   background-color: var(--mainColor);
   color: var(--fontLight);
 }
+
+
+
+
+
+
+.imageGrid {
+  padding-top: var(--navHeight);
+  columns: 4;
+  column-gap: 4px;
+  .grid-item {
+    display: block;
+    break-inside: avoid;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 4px;
+  }
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+}
+
+
+

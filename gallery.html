@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./scripts/gallery/dist/css/lightgallery.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="inner">
+          <ul>
+            <li id="navIcon">
+              <a href="/">
+                hi
+              </a>
+            </li>
+            <li>
+              <a href="Kurse">
+                Kurse
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Galerie
+              </a>
+            </li>
+            <li id="kontaktLink">
+              <a href="/kontakt">
+                Kontakt
+              </a>
+            </li>
+            <li id="impressumLink">
+              <a href="/impressum">
+                Impressum
+              </a>
+            </li>
+            <li id="gallery">
+              <a href="/gallery.html">
+                Galerie
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    <div id="lightgallery" class="inner imageGrid">
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy"  class="grid-item" src="./media/gallery/FO1_6188 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/IMG_0742 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/IMG_0731 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/FO1_6211 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/FO1_6202 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/FO1_6196 (Custom).jpg" alt="">
+        </a>
+        <a class="grid-item" href="./media/gallery/FO1_6192 (Custom).jpg">
+            <img loading="lazy" src="./media/gallery/FO1_6192 (Custom).jpg" alt="">
+        </a>
+    </div>
+    <script src="scripts/gallery/dist/js/lightgallery.min.js"></script>
+    <script>
+        const galleryContainer=document.querySelector('#lightgallery');
+        async function fetchImages(){
+            try {
+                const res=await fetch("https://picsum.photos/v2/list");
+                const json=await res.json();
+                json.forEach(item=>{
+                    galleryContainer.innerHTML+=`
+                    <a class="grid-item" href="${item.download_url}">
+                        <img loading="lazy" src="${item.download_url}" alt="">
+                    </a>`
+                })
+                initGallery()
+            } catch (error) {
+                console.log(error)
+            }
+            
+        }
+        fetchImages();
+        function initGallery(){
+            lightGallery(galleryContainer, {
+                thumbnail:true,
+                animateThumb: false,
+                showThumbByDefault: false
+            });
+        }
+        
+        
+    </script>
+</body>
+</html>
