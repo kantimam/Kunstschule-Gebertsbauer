@@ -82,7 +82,6 @@ nav {
 #introSection {
   display: grid;
   grid-template-columns: auto minmax(100%, var(--appWidth)) auto;
-  //min-height: calc(100vh - var(--navHeight));
   min-height: 100vh;
 
   .inner {
@@ -114,7 +113,8 @@ nav {
     grid-row: 1/-1;
     grid-column: 1/-1;
     width: 100%;
-    height: calc(100vh + 10rem);
+    min-height: calc(100vh + 6rem);
+    /* max-height: calc(100vh + 20rem); */
     //height: 100%;
     object-fit: cover;
     object-position: top right;
@@ -128,7 +128,8 @@ nav {
   z-index: 1;
   position: relative;
   text-align: center;
-  &:before {
+  margin-top: -6rem;
+  /* &:before {
     display: block;
     content: "";
     position: absolute;
@@ -137,7 +138,7 @@ nav {
     top: -10rem;
     z-index: 2;
     background-image: linear-gradient(transparent, var(--bgColor));
-  }
+  } */
 
  
 

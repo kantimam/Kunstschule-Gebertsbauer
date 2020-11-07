@@ -118,7 +118,8 @@ nav #kontaktLink {
   grid-row: 1/-1;
   grid-column: 1/-1;
   width: 100%;
-  height: calc(100vh + 10rem);
+  min-height: calc(100vh + 6rem);
+  /* max-height: calc(100vh + 20rem); */
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top right;
@@ -130,18 +131,17 @@ nav #kontaktLink {
   z-index: 1;
   position: relative;
   text-align: center;
-}
-
-#descSection:before {
-  display: block;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 10rem;
-  top: -10rem;
-  z-index: 2;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(var(--bgColor)));
-  background-image: linear-gradient(transparent, var(--bgColor));
+  margin-top: -6rem;
+  /* &:before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 10rem;
+    top: -10rem;
+    z-index: 2;
+    background-image: linear-gradient(transparent, var(--bgColor));
+  } */
 }
 
 #descSection article {
